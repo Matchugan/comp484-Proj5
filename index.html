@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Google Maps App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Map Quiz</h1>
+
+  <div id="question-prompt">
+    Please double click on the map to guess the location of: 
+  </div>
+
+  <div id = "current-question"></div>
+
+  <div id="map"></div>
+
+  <div id = "results"></div>
+
+  <script src="script.js"></script>
+
+  <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeOwtugwvBpV-TK3g09aB32_xWaUHJbM8&callback=initMap&libraries=marker">
+  </script>
+</body>
+</html>
