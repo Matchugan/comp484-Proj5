@@ -12,9 +12,9 @@ const locations = [
     radius: 45
   },
   {
-    name: "Byramian Hall",
-    lat: 34.24045286980874, 
-    lng: -118.53085240263087,
+    name: "Bookstein Hall",
+    lat: 34.24195087687802,  
+    lng: -118.5306723576124,
     radius: 45
   },
   {
@@ -137,7 +137,7 @@ function drawChosenAreaBox(location, withinArea, Circle){
     strokeOpacity: 1,
     strokeWeight: 2,
     fillColor: withinArea ? "green" : "red",
-    fillOpacity: 0.3
+    fillOpacity: 0.5
 
   });
 }
@@ -167,25 +167,7 @@ function addResultToPage(location, withinArea, walkingDistance, walkingTime) {
 }
 
 function getWalkingDistanceFromLibrary(location, withinArea, distanceService) {
-  const destination = new google.maps.LatLng(location.lat, location.lng);
 
-  distanceService.getDistanceMatrix(
-    {
-      origins: [libraryStart],
-      destinations: [destination],
-      travelMode: google.maps.TravelMode.WALKING
-    },
-    function (response, status) {
-      if (status === "OK") {
-        const result = response.rows[0].elements[0];
+  addResultToPage(location, withinArea, "walkingDistance", "walkingTime");
 
-        const walkingDistance = result.distance.text;
-        const walkingTime = result.duration.text;
-
-        addResultToPage(location, withinArea, walkingDistance, walkingTime);
-      } else {
-        addResultToPage(location, withinArea, "distance", " time");
-      }
-    }
-  );
 }
